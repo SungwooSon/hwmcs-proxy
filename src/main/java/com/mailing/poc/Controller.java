@@ -2,12 +2,12 @@ package com.mailing.poc;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
@@ -18,7 +18,7 @@ import java.util.Map;
 public class Controller {
 
     String API_KEY = "bc9fcbe0-af3a-49b8-a89d-e90209884e2c";
-    
+
     String resourceUrl = "https://api.mcspoc.net/";
 
     Map<String, Integer> userIdMap = new HashMap<>();
@@ -60,4 +60,64 @@ public class Controller {
         return map;
 
     }
+
+    @PostMapping(value = "/flowly/content")
+    public Map<String, Object> content(@RequestBody RequestDto body,
+                                       @RequestHeader(value="Authorization") String authorization) throws JsonProcessingException {
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", authorization);
+
+        int userId = userIdMap.get(body.getUserId());
+        DDRequestDto ddRequestDto = new DDRequestDto(userId, body.getMetadata());
+        System.out.println("request : " + ddRequestDto.toString());
+
+        HttpEntity<DDRequestDto> request = new HttpEntity<>(ddRequestDto, headers);
+
+        RestTemplateBuilder restTemplateBuilder = new RestTemplateBuilder();
+        RestTemplate restTemplate = restTemplateBuilder.errorHandler(new RestTemplateResponseErrorHandler()).build();
+        ResponseEntity<String> response = restTemplate.exchange(
+                resourceUrl + "/flowly/content",
+                HttpMethod.POST,
+                request,
+                String.class
+        );
+
+        ObjectMapper mapper = new ObjectMapper();
+        Map<String, Object> map = mapper.readValue(response.getBody(), Map.class);
+
+        System.out.println("response = " + response);
+        System.out.println("response status = " + response.getStatusCode());
+        System.out.println("response = " + response.getBody());
+
+        return map;
+    }
+
+    @PostMapping(value = "/flowly/test")
+    public Map<String, Object> test(@RequestHeader(value="Authorization") String authorization) throws JsonProcessingException {
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", authorization);
+
+        HttpEntity<DDRequestDto> request = new HttpEntity<>(headers);
+
+        RestTemplateBuilder restTemplateBuilder = new RestTemplateBuilder();
+        RestTemplate restTemplate = restTemplateBuilder.errorHandler(new RestTemplateResponseErrorHandler()).build();
+        ResponseEntity<String> response = restTemplate.exchange(
+                resourceUrl + "/flowly/test",
+                HttpMethod.POST,
+                request,
+                String.class
+        );
+
+        ObjectMapper mapper = new ObjectMapper();
+        Map<String, Object> map = mapper.readValue(response.getBody(), Map.class);
+
+        System.out.println("response = " + response);
+        System.out.println("response status = " + response.getStatusCode());
+        System.out.println("response = " + response.getBody());
+
+        return map;
+    }
+
 }
