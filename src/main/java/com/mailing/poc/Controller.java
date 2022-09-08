@@ -33,8 +33,8 @@ public class Controller {
             userIdMap.put("julien"+i, 14);
         }
 
-        userIdMap.put("flowly11@test.com", 63);
-        userIdMap.put("flowly12@test.com", 64);
+        userIdMap.put("flowly11", 63);
+        userIdMap.put("flowly12", 64);
     }
 
     @GetMapping(value = "/flowly/stress")
