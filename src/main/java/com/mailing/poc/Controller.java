@@ -32,6 +32,9 @@ public class Controller {
         for(int i=2; i<=20; i++) {
             userIdMap.put("julien"+i, 14);
         }
+
+        userIdMap.put("flowly11@test.com", 63);
+        userIdMap.put("flowly12@test.com", 64);
     }
 
     @GetMapping(value = "/flowly/stress")
