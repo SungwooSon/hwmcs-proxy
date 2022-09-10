@@ -19,7 +19,7 @@ public class PurchaseContentController {
     private final UserService userService;
     private final FlowlyEmailService emailService;
 
-    @GetMapping("/flowly/purchase/{id}")
+    @PostMapping("/flowly/purchase/{id}")
     public void purchase(@PathVariable Long id) throws JsonProcessingException {
 
         PurchaseContent purchaseContent = purchaseContentService.getPurchaseContent(id);
