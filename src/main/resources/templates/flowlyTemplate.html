@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML 템플릿 메일 메시지 예시</title>
+</head>
+<body>
+<div>
+    <h4>신청자 정보</h4>
+    <p>이름 : <span th:text="${name}"></span></p>
+    <p>flowly 계정 : <span th:text="${flowlyAccount}"></span></p>
+    <br>
+
+    <h4>배송지 정보</h4>
+    <p>연락처 : <span th:text="${contact}"></span></p>
+    <p>우편번호 : <span th:text="${postCode}"></span></p>
+    <p>주소 : <span th:text="${address}"></span> <span th:text="${detailAddress}"></span></p>
+</div>
+</body>
+</html>
