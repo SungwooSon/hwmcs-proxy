@@ -1,4 +1,4 @@
-package com.mailing.poc;
+package com.mailing.poc.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

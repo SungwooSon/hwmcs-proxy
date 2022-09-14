@@ -1,6 +1,6 @@
-package com.mailing.poc;
+package com.mailing.poc.dto;
 
-import lombok.Builder;
+import com.mailing.poc.dto.MetadataDto;
 
 
 public class DDRequestDto {

@@ -1,5 +1,6 @@
-package com.mailing.poc;
+package com.mailing.poc.response;
 
+import com.mailing.poc.dto.DataDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

@@ -53,4 +53,8 @@ public class CouponService {
         coupon.setUsedAt(LocalDateTime.now());
         couponRepository.save(coupon);
     }
+
+    public String getPurchaseContentId(String thirdPartyEmail, String couponNo) {
+        return couponRepository.findPurchaseContentId(thirdPartyEmail, couponNo);
+    }
 }
