@@ -1,7 +1,7 @@
-package com.mailing.poc;
+package com.mailing.poc.dto;
 
+import com.mailing.poc.dto.MetadataDto;
 import lombok.Data;
-import lombok.Getter;
 
 @Data
 public class RequestDto {
