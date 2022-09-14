@@ -27,8 +27,8 @@ public class FlowlyEmailService {
         String message = templateEngine.process(EXAMPLE_LINK_TEMPLATE, context);
 
         EmailMessage emailMessage = EmailMessage.builder()
-                //.to("help@flowly.world")
-                .to("ssw0418@gb-soft.co.kr")
+                .to("help@flowly.world")
+                //.to("ssw0418@kakao.com")
                 .subject("flowly 신청정보")
                 .message(message)
                 .build();

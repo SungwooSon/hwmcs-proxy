@@ -2,19 +2,38 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>HTML 템플릿 메일 메시지 예시</title>
+
+    <style>
+        .mTable {
+            width: 100%;
+            border: 1px solid #444444;
+            border-collapse: collapse;
+        }
+        mTh, .mTd {
+            border: 1px solid #444444;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
 <div>
-    <h4>신청자 정보</h4>
-    <p>이름 : <span th:text="${name}"></span></p>
-    <p>flowly 계정 : <span th:text="${flowlyAccount}"></span></p>
-    <br>
 
-    <h4>배송지 정보</h4>
-    <p>연락처 : <span th:text="${contact}"></span></p>
-    <p>우편번호 : <span th:text="${postCode}"></span></p>
-    <p>주소 : <span th:text="${address}"></span> <span th:text="${detailAddress}"></span></p>
+    <table class="mTable" style="width: 100%;border: 1px solid #444444;border-collapse: collapse;">
+        <tr class="mTr">
+            <th class="mTh" style="border: 1px solid #444444;padding: 10px;">이름</th>
+            <th class="mTh" style="border: 1px solid #444444;padding: 10px;">flowly 계정</th>
+            <th class="mTh" style="border: 1px solid #444444;padding: 10px;">연락처</th>
+            <th class="mTh" style="border: 1px solid #444444;padding: 10px;">우편번호</th>
+            <th class="mTh" style="border: 1px solid #444444;padding: 10px;">주소</th>
+        </tr>
+        <tr>
+            <td class="mTd" style="border: 1px solid #444444;padding: 10px;" th:text="${name}"></td>
+            <td class="mTd" style="border: 1px solid #444444;padding: 10px;" th:text="${flowlyAccount}"></td>
+            <td class="mTd" style="border: 1px solid #444444;padding: 10px;" th:text="${contact}"></td>
+            <td class="mTd" style="border: 1px solid #444444;padding: 10px;" th:text="${postCode}"></td>
+            <td class="mTd" style="border: 1px solid #444444;padding: 10px;" th:text="${address + ' ' + detailAddress}"></td>
+        </tr>
+    </table>
 </div>
 </body>
 </html>

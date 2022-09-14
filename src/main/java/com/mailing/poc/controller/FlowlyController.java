@@ -1,10 +1,12 @@
-package com.mailing.poc;
+package com.mailing.poc.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import com.mailing.poc.dto.DDRequestDto;
+import com.mailing.poc.dto.RequestDto;
+import com.mailing.poc.RestTemplateResponseErrorHandler;
+import com.mailing.poc.service.FlowlyEmailService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;
@@ -16,8 +18,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
+@RequiredArgsConstructor
 @Slf4j
-public class Controller {
+public class FlowlyController {
+
+    private final FlowlyEmailService emailService;
 
     String API_KEY = "bc9fcbe0-af3a-49b8-a89d-e90209884e2c";
 
@@ -136,5 +141,4 @@ public class Controller {
 
         return map;
     }
-
 }
