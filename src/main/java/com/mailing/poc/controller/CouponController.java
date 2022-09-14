@@ -21,9 +21,9 @@ public class CouponController {
     private final CouponService couponService;
 
     @GetMapping("/coupons")
-    public CouponResponseDto issueCoupons(Integer quantity, String talingId) {
+    public CouponResponseDto issueCoupons(Integer quantity, String talingId, Integer purchaseContentId) {
 
-        List<Coupon> coupons = couponService.issueAndMakeUse(quantity, talingId);
+        List<Coupon> coupons = couponService.issueAndMakeUse(quantity, talingId, purchaseContentId);
 
         return new CouponResponseDto(coupons);
     }

@@ -20,4 +20,5 @@ public class Coupon {
     private String thirdPartyEmail;
     private LocalDateTime usedAt;
     private LocalDateTime createAt;
+    private int purchaseContentId;
 }

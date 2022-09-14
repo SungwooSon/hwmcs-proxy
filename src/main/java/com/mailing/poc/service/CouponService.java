@@ -26,7 +26,7 @@ public class CouponService {
      */
 
     @Transactional
-    public List<Coupon> issueAndMakeUse(Integer quantity, String talingId) {
+    public List<Coupon> issueAndMakeUse(Integer quantity, String talingId, Integer purchaseContentId) {
 
         List<Coupon> coupons = couponRepository.findAll();
         List<Coupon> issuedCoupons = new ArrayList<>();
@@ -35,7 +35,7 @@ public class CouponService {
         for (Coupon coupon : coupons) {
             if (coupon.getUseYn() == 0) {
                 issuedCoupons.add(coupon);
-                makeUsedCoupn(coupon, talingId);
+                makeUsedCoupn(coupon, talingId, purchaseContentId);
                 count--;
             }
 
@@ -47,10 +47,11 @@ public class CouponService {
         return issuedCoupons;
     }
 
-    private void makeUsedCoupn(Coupon coupon, final String talingId) {
+    private void makeUsedCoupn(Coupon coupon, final String talingId, Integer purchaseContentId) {
         coupon.setUseYn(1);
         coupon.setThirdPartyEmail(talingId);
         coupon.setUsedAt(LocalDateTime.now());
+        coupon.setPurchaseContentId(purchaseContentId);
         couponRepository.save(coupon);
     }
 
