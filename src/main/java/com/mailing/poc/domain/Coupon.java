@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Table(name = "Coupon", schema = "poc")
+@AllArgsConstructor
 public class Coupon {
 
     @Id
