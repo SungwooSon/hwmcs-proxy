@@ -16,9 +16,9 @@ public class Coupon {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String couponNo;
-    private int useYn;
+    private Integer useYn;
     private String thirdPartyEmail;
     private LocalDateTime usedAt;
     private LocalDateTime createAt;
-    private int purchaseContentId;
+    private Integer purchaseContentId;
 }
