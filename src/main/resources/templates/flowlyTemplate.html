@@ -18,6 +18,16 @@
 <body>
 <div>
 
+    <p>{</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;"name": "[(${name})]"</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;"id": "[(${flowlyAccount})]"</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;"phone": "[(${contact})]"</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;"address" : { </p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"line1": "[(${address + ' ' + detailAddress})]"</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"zipcode": "[(${postCode})]"</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+    <p>}</p>
+
     <table class="mTable" style="width: 100%;border: 1px solid #444444;border-collapse: collapse;">
         <tr class="mTr">
             <th class="mTh" style="border: 1px solid #444444;padding: 10px;">이름</th>
@@ -34,6 +44,8 @@
             <td class="mTd" style="border: 1px solid #444444;padding: 10px;" th:text="${address + ' ' + detailAddress}"></td>
         </tr>
     </table>
+
+
 </div>
 </body>
 </html>
