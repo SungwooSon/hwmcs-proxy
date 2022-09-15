@@ -1,51 +1,9 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-
-    <style>
-        .mTable {
-            width: 100%;
-            border: 1px solid #444444;
-            border-collapse: collapse;
-        }
-        mTh, .mTd {
-            border: 1px solid #444444;
-            padding: 10px;
-        }
-    </style>
-</head>
-<body>
-<div>
-
-    <p>{</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;"name": "[(${name})]"</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;"id": "[(${flowlyAccount})]"</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;"phone": "[(${contact})]"</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;"address" : { </p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"line1": "[(${address + ' ' + detailAddress})]"</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"zipcode": "[(${postCode})]"</p>
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
-    <p>}</p>
-
-    <!--<table class="mTable" style="width: 100%;border: 1px solid #444444;border-collapse: collapse;">
-        <tr class="mTr">
-            <th class="mTh" style="border: 1px solid #444444;padding: 10px;">이름</th>
-            <th class="mTh" style="border: 1px solid #444444;padding: 10px;">flowly 계정</th>
-            <th class="mTh" style="border: 1px solid #444444;padding: 10px;">연락처</th>
-            <th class="mTh" style="border: 1px solid #444444;padding: 10px;">우편번호</th>
-            <th class="mTh" style="border: 1px solid #444444;padding: 10px;">주소</th>
-        </tr>
-        <tr>
-            <td class="mTd" style="border: 1px solid #444444;padding: 10px;" th:text="${name}"></td>
-            <td class="mTd" style="border: 1px solid #444444;padding: 10px;" th:text="${flowlyAccount}"></td>
-            <td class="mTd" style="border: 1px solid #444444;padding: 10px;" th:text="${contact}"></td>
-            <td class="mTd" style="border: 1px solid #444444;padding: 10px;" th:text="${postCode}"></td>
-            <td class="mTd" style="border: 1px solid #444444;padding: 10px;" th:text="${address + ' ' + detailAddress}"></td>
-        </tr>
-    </table>-->
-
-
-</div>
-</body>
-</html>
+{
+    "name": "[(${name})]"
+    "id": "[(${flowlyAccount})]"
+    "phone": "[(${contact})]"
+    "address" : {
+        "line1": "[(${address + ' ' + detailAddress})]"
+        "zipcode": "[(${postCode})]"
+    }
+}

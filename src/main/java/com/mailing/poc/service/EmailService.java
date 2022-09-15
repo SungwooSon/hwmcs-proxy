@@ -29,7 +29,7 @@ public class EmailService {
              * html 템플릿으로 보낼거면 true
              * plaintext로 보낼거면 false
              */
-            mimeMessageHelper.setText(emailMessage.getMessage(), true);
+            mimeMessageHelper.setText(emailMessage.getMessage(), false);
             javaMailSender.send(mimeMessage);
             log.info("sent email: {}", emailMessage.getMessage());
         } catch (MessagingException e) {
