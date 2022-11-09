@@ -5,9 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -18,6 +16,8 @@ import java.time.LocalDateTime;
 public class User {
 
     @Id
+    @GeneratedValue
+    @Column(name = "id")
     private Long id;
     private String email;
     private String password;
@@ -38,4 +38,5 @@ public class User {
     private LocalDateTime updatedAt;
     private LocalDateTime deletedAt;
     private String thirdPartyEmail;
+
 }

@@ -22,4 +22,10 @@ public class Coupon {
     private LocalDateTime usedAt;
     private LocalDateTime createAt;
     private Integer purchaseContentId;
+
+    public Coupon(String couponNo, Integer useYn, LocalDateTime createAt) {
+        this.couponNo = couponNo;
+        this.useYn = useYn;
+        this.createAt = createAt;
+    }
 }
