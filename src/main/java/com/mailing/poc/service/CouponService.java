@@ -1,6 +1,7 @@
 package com.mailing.poc.service;
 
 import com.mailing.poc.domain.Coupon;
+import com.mailing.poc.repository.ContentRepository;
 import com.mailing.poc.repository.CouponRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ import java.util.List;
 public class CouponService {
 
     private final CouponRepository couponRepository;
+    private final ContentRepository contentRepository;
 
     /**
      * 신청 수량 만큼 쿠폰을 발급합니다.
@@ -47,7 +49,6 @@ public class CouponService {
                 break;
             }
         }
-
         return issuedCoupons;
     }
 
@@ -68,5 +69,13 @@ public class CouponService {
 
     public String getPurchaseContentId(String thirdPartyEmail, String couponNo) {
         return couponRepository.findPurchaseContentId(thirdPartyEmail, couponNo);
+    }
+    @Transactional
+    public void checkSoldOut() {
+        int remainCouponCount = couponRepository.findCouponByUseYn(0).size();
+        remainCouponCount = 9;
+        if(remainCouponCount < 10) {
+            contentRepository.updateContentPrice();
+        }
     }
 }

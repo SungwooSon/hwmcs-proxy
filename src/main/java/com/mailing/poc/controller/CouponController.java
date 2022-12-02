@@ -24,7 +24,7 @@ public class CouponController {
     public CouponResponseDto issueCoupons(Integer quantity, String talingId, Integer purchaseContentId) {
 
         List<Coupon> coupons = couponService.issueAndMakeUse(quantity, talingId, purchaseContentId);
-
+        couponService.checkSoldOut();
         return new CouponResponseDto(coupons);
     }
 
